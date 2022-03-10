@@ -15,13 +15,16 @@ filetype off
 set rtp+=/home/denilai/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-
-"Plugin 'php.vim'
 Plugin 'neocomplcache'
-"Plugin 'rails.vim'
+Plugin 'w0rp/ale'
 Plugin 'bling/vim-airline'
-"Plugin 'cohlin/vim-colorschemes'
 Plugin 'preservim/nerdtree'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-sensible'
+Plugin 'scrooloose/syntastic'
+Plugin 'dag/vim2hs'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'Shougo/vimproc'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,3 +53,27 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+"" use ghc functionality for haskell files
+"au Bufenter *.hs compiler ghc
+"
+"" switch on syntax highlighting
+"syntax on
+"
+"" enable filetype detection, plus loading of filetype plugins
+"filetype plugin on
+"
+"" configure browser for haskell_doc.vim
+"let g:haddock_browser = "/usr/bin/yandex-browser"
+
+" Set a vertical line for long line width. This will give us a visual
+" indicator for cases in which line length is approaching 80 chars
+"set colorcolumn=80
+" Set the command section height to 2 lines.  Useful if notices (like syntastic) are shown on command lines
+set cmdheight=2
+
+let g:airline#extensions#ale#enabled = 1
+
+nnoremap <Leader>ht :GhcModType<cr>
+nnoremap <Leader>htc :GhcModTypeClear<cr>
+autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
