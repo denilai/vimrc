@@ -1,13 +1,21 @@
 "Incremental highlighted search
 set incsearch
-set nu
+:set number
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+:augroup END
+
+
 set tabstop=2
 set shiftwidth=2
 set smarttab
 set expandtab
-set autoindent
+"set autoindent
 "Auto indent. Apply top line indendtation
-set smartindent
+"set smartindent
 
 colorscheme torte
 set nocompatible
