@@ -1,7 +1,10 @@
 "Incremental highlighted search
 set incsearch
-:set number
-
+set visualbell
+set number
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 :augroup numbertoggle
 :  autocmd!
 :  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
@@ -33,7 +36,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'dag/vim2hs'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc'
-
+Plugin 'gilgigilgil/anderson.vim'
+Plugin 'BusyBee'
+Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'kiddos/malokai.vim'
+Plugin 'jacoborus/tender.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
