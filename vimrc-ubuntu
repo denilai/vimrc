@@ -12,8 +12,8 @@ set undodir=~/.vim/undo//
 :augroup END
 
 
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set smarttab
 set expandtab
 "set autoindent
@@ -32,20 +32,16 @@ Plugin 'bling/vim-airline'
 Plugin 'preservim/nerdtree'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-sensible'
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'dag/vim2hs'
-"Plugin 'eagletmt/ghcmod-vim'
+Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc'
 Plugin 'gilgigilgil/anderson.vim'
 Plugin 'BusyBee'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'kiddos/malokai.vim'
 Plugin 'jacoborus/tender.vim'
-Plugin 'djoshea/vim-autoread'
-"Plugin 'davidhalter/jedi-vim'
-"Plugin 'vim-syntastic/syntastic'
 " All of your Plugins must be added before the following line
-Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -69,7 +65,7 @@ map <C-l> <C-w>l
 
 
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-r> :NERDTree<CR>
+nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
@@ -96,4 +92,3 @@ let g:airline#extensions#ale#enabled = 1
 nnoremap <Leader>ht :GhcModType<cr>
 nnoremap <Leader>htc :GhcModTypeClear<cr>
 autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
-
